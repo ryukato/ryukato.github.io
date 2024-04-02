@@ -1,0 +1,27 @@
+.container {
+  flex: 1;
+  display: column;
+  margin: 1rem 5rem;
+}
+
+.profileImage {
+  border-radius: 50%;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.profileCard {
+  padding-left: '24px;'
+}
+
+.profileCard > ul {
+  list-style: none;
+}
+
+.profileCard > li {
+  display: list-item;
+}
+
+a {
+  margin-left: 0.2rem;
+}
