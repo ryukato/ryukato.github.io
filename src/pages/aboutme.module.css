@@ -1,6 +1,9 @@
 .container {
-  flex: 1;
-  display: column;
+  align-items: center;
+  justify-content: center;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
   margin: 1rem 5rem;
 }
 
@@ -23,5 +26,5 @@
 }
 
 a {
-  margin-left: 0.2rem;
+  margin-left: 0.5rem;
 }

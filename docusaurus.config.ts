@@ -60,7 +60,7 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-       {to: 'docs/about-me', label: 'AboutMe', position: 'left'},
+       {to: '/aboutme', label: 'AboutMe', position: 'left'},
        {to: '/blog', label: 'Blog', position: 'left'},
       ],
     },
