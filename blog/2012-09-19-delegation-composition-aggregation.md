@@ -6,6 +6,8 @@ date: 2012-09-19 09:36:55
 tags: [Delegation, Composition, Aggregation]
 ---
 
+<!-- truncate -->
+
 # Delegation, Composition and Aggregation.
 
 final 키워드를 공부하다가, 우연하게 발견한 좋은 글이 있어 소개를 할려고합니다.

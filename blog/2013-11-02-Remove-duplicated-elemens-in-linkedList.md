@@ -6,6 +6,8 @@ date: 2013-11-02 09:36:55
 tags: [Java, LinkedList, Java-puzzle]
 ---
 
+<!-- truncate -->
+
 # LinkedList의 중복된 요소 제거
 우연히 메일을 확인하다가 발견한 내용인데. 문제가 재미있어 보여서 함 풀어봤습니다.
 문제의 내용은 아래와 같습니다. 출처는 [http://java.dzone.com/articles/thursday-code-puzzler-remove#comment-106477](http://java.dzone.com/articles/thursday-code-puzzler-remove#comment-106477)

@@ -6,6 +6,8 @@ date: 2018-01-22 09:36:55
 tags: [Java, "Secure Coding"]
 ---
 
+<!-- truncate -->
+
 # Secure Codings 요약 정리
 ## Secure Coding Practices
 ### SQL Injection

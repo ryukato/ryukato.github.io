@@ -6,6 +6,8 @@ date: 2016-01-21 09:36:55
 tags: [Java, Closure, Currying]
 ---
 
+<!-- truncate -->
+
 # Java 8의 문제점: 커링([currying](https://en.wikipedia.org/wiki/Currying))대 클로져([closure](https://en.wikipedia.org/wiki/Closure_(computer_programming)))
 
 [원문-What's Wrong with Java 8: Currying vs Closures](https://dzone.com/articles/whats-wrong-java-8-currying-vs)

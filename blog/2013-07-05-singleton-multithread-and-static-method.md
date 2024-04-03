@@ -6,6 +6,8 @@ date: 2013-07-05 09:36:55
 tags: [Java, Design-Pattern, Singleton, MultiThreading]
 ---
 
+<!-- truncate -->
+
 # Singleton, MultiThreading and static method
 
 음 프로젝트 중에 뭔가 이상한 에러가 있어 살펴보았는데 singleton class 가 있고, 그 singleton class의 getInstance 메서드가 아닌 다른 비지니스 로직이 담긴 메서드가 있다. 그런데 해당 비지니스 로직 메서드를 다른 static 메서드들을 가지고 있는 class에서 호출하고 있었다.

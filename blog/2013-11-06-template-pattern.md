@@ -6,6 +6,8 @@ date: 2013-07-05 09:36:55
 tags: [Java, Design-Pattern, Template-pattern]
 ---
 
+<!-- truncate -->
+
 # Template pattern 예제
 프로젝트 진행중 비상연락망을 엑셀로 업로드하여 데이터를 DB table에 insert하는 기능을 구현해야하는데 문제는 비상연락망이 하나가 아니라 현업 비상연락망, 외부기관 및 협력업체 이렇게 세가지가 있다고 한다. 차후에 추가될지도(그렇지 않겠지만) 모른다는 생각이 들어  template pattern으로 해보면 어떨가 하여 샘플 코드를 아래와 같이 짜 보았다. 전자정부 프레임워크인가 프로젝트 workspace에 있는 패키지 중에 ExcelUtil이라는 클래스가 있는데 엑셀 내용을 읽어서 `List<Map<String,Object>>` 타입으로 반환해주는 함수가 있었는데 이를 이용하면 쉽게 아래의 **AbstractExcelUploadTemplate** 클래스의 read 메서드를 구현할 수 있을 거라는 생각이 든다. 그래서 일단은 테스트 용이기때문에 테스트 데이터를 반환해주는 용도로 사용하였다.
 

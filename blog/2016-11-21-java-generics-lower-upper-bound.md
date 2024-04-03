@@ -6,6 +6,8 @@ date: 2016-11-21 09:36:55
 tags: [Java, Generics, Lower-bound, Upper-bound]
 ---
 
+<!-- truncate -->
+
 # Java Generics - Lower and Upper bound
 ## Lower bound
 ### Expression

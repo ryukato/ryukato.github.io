@@ -6,6 +6,8 @@ date: 2013-08-11 16:57:29
 tags: [Java, JCF, Map]
 ---
 
+<!-- truncate -->
+
 # Map interface 와 Map의 기본 구현체들
 Map은 실제로 많이 사용되는 객체이지요. 이번에는 Map에 대해 써 볼까 합니다. Set을 자세히 알기 위해서도 먼저 Map을 알아두는 것이 좋다고 생각이됩니다. 왜냐면 Set의 구현체들 HashSet, TreeSet등등은 내부적으로 Map의 구현체들을 각각 사용하여 요소들을 저장 및 추출하고, 정렬하기때문입니다.
 

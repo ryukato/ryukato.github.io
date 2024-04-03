@@ -6,6 +6,8 @@ date: 2017-02-23 09:36:55
 tags: [Docker, homebrew]
 ---
 
+<!-- truncate -->
+
 # Install Docker on Mac with Homebrew
 
 ## virtualbox 설치하기

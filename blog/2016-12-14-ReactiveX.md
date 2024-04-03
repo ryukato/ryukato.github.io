@@ -6,6 +6,8 @@ date: 2016-12-14 16:57:29
 tags: [Java, ReactiveX]
 ---
 
+<!-- truncate -->
+
 # ReactiveX
 [How-To-Use-RxJava](https://github.com/ReactiveX/RxJava/wiki/How-To-Use-RxJava)에 나온 Groovy 예제를 Java로 바꿔보았습니다.
 

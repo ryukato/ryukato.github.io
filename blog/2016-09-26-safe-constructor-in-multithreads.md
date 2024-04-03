@@ -6,6 +6,8 @@ date: 2016-09-26 16:57:29
 tags: [Java, Multi-threads, Constructor]
 ---
 
+<!-- truncate -->
+
 # 다중 쓰레드 환경에서 안전하게 생성자 작성하기
 
 (원문: Java theory and practice: Safe construction techniques)[http://www.ibm.com/developerworks/library/j-jtp0618/]

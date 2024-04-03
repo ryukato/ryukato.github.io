@@ -6,7 +6,6 @@ date: 2024-03-30 12:42:50
 tags: [development, laptop-setup]
 ---
 
-How to setup development laptop or pc
 <!-- truncate -->
 
 

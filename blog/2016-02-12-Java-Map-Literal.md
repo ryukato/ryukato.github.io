@@ -6,6 +6,8 @@ date: 2016-02-12 16:57:29
 tags: [Java, Map, Literal]
 ---
 
+<!-- truncate -->
+
 # Java Map Literal
 다른 언어에서 Map문자열을 지원하는데, Java에서는 이를 지원하지 않는다. 그런데 [DZone](https://dzone.com/articles/using-factory-methods-to-simulate-map-literals-in)이라는 웹 싸이트를 보다가 Java에서도 이와 유사하게 구현을 할 수 있는 것을 발견하여, 이에 대한 내용을 적어 본다.
 

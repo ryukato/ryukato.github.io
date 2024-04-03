@@ -6,6 +6,8 @@ date: 2017-12-27 09:36:55
 tags: [JavaScript, Angular4, 'Data binding']
 ---
 
+<!-- truncate -->
+
 # Angular4 Data Binding 요약 정리
 데이터 바인딩은 뷰와 콤포넌트에서 발생한 데이터의 변경 사항을 자동으로 일치시켜주는 것을 말한다.
 또한 데이터 흐름에 따라 **양방향**, **단방향** 바인딩으로 구분된다.

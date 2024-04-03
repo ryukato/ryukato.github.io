@@ -6,6 +6,8 @@ date: 2017-10-24 16:55:50
 tags: [Git, branching, 브랜칭]
 ---
 
+<!-- truncate -->
+
 # Git Branching Model
 참고 자료: [a-successful-git-branching-model/](http://nvie.com/posts/a-successful-git-branching-model/)
 application을 개발 할때, 소스 관리 및 배포를 위한 branch 관리가 필요하다. 새로운 기능 혹은 결함 수정에 대한 코드들을 어느 branch에 적용해야 하는지, 어떤 흐름을 거쳐 배포를 해야 하는지를 정하고 이를 팀원과 협의하고 준수해야 효과적으로 소스 코드 관리 및 배포를 효율적으로 할 수 있다고 생각된다.

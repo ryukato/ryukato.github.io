@@ -6,6 +6,8 @@ date: 2016-01-11 09:36:55
 tags: [Java, ArrayList, toString]
 ---
 
+<!-- truncate -->
+
 # 배열의 Null 요소를 뺀 toString
 코드를 작성하다보면 배열에 담겨있는 요소들을 toString으로 확인해야 할 경우가 있다. 그런데 배열은 null을 허용하기때문에 다음과 같은 코드를 무심코 작성하게 되면 NullPointerException이 발생하게 된다.
 

@@ -6,6 +6,8 @@ date: 2013-08-11 16:57:29
 tags: [Java, JCF, Set, Ordering]
 ---
 
+<!-- truncate -->
+
 # 정렬순서가 다른 두 Set을 하나로 만들기
 함께 일하는 분이 물어봐서 함 짜봤다.
 아래 코드는 하나는 오름차순, 다른 하나는 내림차순으로 정렬하는 두개의 TreeSet을 만들어서 하나의 List에 합치는 것으로 **TreeSet**은 생성자에서 **Comparator**를 받아 해당 **Comparator** 객체를 가지고 Set에 들어갈 요소들을 정렬하기때문에, **오름차순으로 정렬하는 Comparator**, **내림차순으로 정렬하는 Comparator**를 각각 만들어서 각각의 TreeSet 생성자에 넣어주면 된다.

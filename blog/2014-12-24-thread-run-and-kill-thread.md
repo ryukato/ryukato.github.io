@@ -6,6 +6,8 @@ date: 2014-12-24 09:36:55
 tags: [Java, thread, kill-thread]
 ---
 
+<!-- truncate -->
+
 # Thread run 메서드 선언 시 유의사항, 그리고 Thread 죽이기
 회사에서 여러 Thread 혹은 하나의 Thread를 죽이는 유틸 클래스를 만들어서 Test를 하는데 죽이고 난 담에 살아 있는 Thread가 없는지를 assert하는 구분에서 자꾸 fail이 나는 거였다. 그래서 이유를 찾아 보니 Mock으로 만든 테스트용 Thread의 run메서드에 문제가 있었다.
 그래서 동일한 실수를 반복하지 말아야하겠단 의도에서 기록을 남긴다.

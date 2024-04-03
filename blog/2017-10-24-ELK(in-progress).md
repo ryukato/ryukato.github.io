@@ -6,6 +6,8 @@ date: 2017-10-24 16:57:29
 tags: [ELK]
 ---
 
+<!-- truncate -->
+
 # ELK (Elasticsearch, Logstash, Kibana)
 ELK (Elasticsearch, Logstash, Kibana)를 통해 애플리케이션 혹은 시스템의 로그들을 수집하여 검색 및 분석을 할 수 있는 환경을 구성할 수 있다.
 

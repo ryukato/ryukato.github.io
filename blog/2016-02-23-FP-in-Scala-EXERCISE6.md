@@ -6,6 +6,8 @@ date: 2016-02-23 09:36:55
 tags: [FP, Functional-programming, Scala]
 ---
 
+<!-- truncate -->
+
 # Functional Programming in Scala - EXERCISE#6
 ## Description
 Implement the higher-order function that composes two functions.

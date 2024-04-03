@@ -6,6 +6,8 @@ date: 2014-12-23 09:36:55
 tags: [Java, thread, exception-handling]
 ---
 
+<!-- truncate -->
+
 # Thread에서 발생한 예외 처리하기
 
 Thread를 사용하여 특정 로직을 수행하도록 할 경우, 해당 Thread가 예상치 못한 예외 등으로 종료가 되는 경우가 있다. 이럴 경우 Thread를 실행한 객체에서는 해당 Thread가 던진 예외를 가져 올 수 없기때문에 정확한 원인 파익이 힘들 수 있다.

@@ -6,6 +6,8 @@ date: 2017-02-05 09:36:55
 tags: [FP, Functional-programming, Scala, 스칼라, 함수형언어]
 ---
 
+<!-- truncate -->
+
 # Functional Programming
 ## Basic Concepts
 ### Pure Functions(순수 함수)

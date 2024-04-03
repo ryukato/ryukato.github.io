@@ -6,6 +6,8 @@ date: 2016-01-21 09:36:55
 tags: [FP, Functional-programming, Scala]
 ---
 
+<!-- truncate -->
+
 # Functional Programming in Scala - EXERCISE#4
 ## Description
 Let’s look at another example, currying, which converts a function of N arguments into a function of one argument that returns another function as its result.11 Here again, there is only one implementation that typechecks.

@@ -6,6 +6,8 @@ date: 2017-01-14 09:36:55
 tags: [FP, Scala, pattern-matching]
 ---
 
+<!-- truncate -->
+
 ## Pattern Matching
 Scala는 일반적인 pattern matching 메카니즘을 가지고 있다. 첫번째로 일치하는 구문을 적용한다는 정책에 따라 어떤 종류의 데이터든 비교하여 실행하도록 해준다.
 아래의 간단한 예제를 통해, 정수 타입 값을 비교하여 일치하는 구문을 실행하는 방법을 살펴보자.

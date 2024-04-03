@@ -7,6 +7,8 @@ tags: [Java, JCF, Map, IdentityHashMap]
 categories: [Java]
 ---
 
+<!-- truncate -->
+
 # IdentityHashMap
 IdentityHashMap객체는 key로 쓰이는 특정 object의 hashCode,equals 메서드를 사용하지 않고 자체적으로 해당 key object의 레퍼런스값을 비교하여 같은지 아닌지를 비교합니다.
 IdentityHashMap객체는 Map객체의 일반적인 계약사항(key object의 hashCode,equals 메서드를 사용하여 해당 key object를 비교하는것)을 위반하였는데, 이는 reference-equality semantics이 요구되는 특별한 경우에 사용되기 때문입니다.

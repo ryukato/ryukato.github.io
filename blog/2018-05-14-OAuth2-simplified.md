@@ -6,6 +6,8 @@ date: 2018-05-14 16:52:19
 tags: [OAuth2]
 ---
 
+<!-- truncate -->
+
 원본: https://aaronparecki.com/oauth-2-simplified/
 
 # OAuth2

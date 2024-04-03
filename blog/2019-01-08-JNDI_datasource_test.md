@@ -6,6 +6,8 @@ date: 2019-01-08 09:36:55
 tags: [Tomcat, JNDI, Unit-testing]
 ---
 
+<!-- truncate -->
+
 Tomcat과 같은 WAS를 기반으로 실행될 애플리케이션을 개발할 때, 보통 애플리케이션과 연동할 Database를 WAS에 DataSource로 아래와 같이 context.xml에 정의 및 등록하여 사용하게 된다.
 
 ```

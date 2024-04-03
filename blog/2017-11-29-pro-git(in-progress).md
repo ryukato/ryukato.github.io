@@ -6,6 +6,8 @@ date: 2017-10-24 16:57:29
 tags: [Pro-git, Git]
 ---
 
+<!-- truncate -->
+
 # Pro Git
 본 문서의 모든 이미지 및 코드들은 Pro Git에서 발췌한 것이다.
 

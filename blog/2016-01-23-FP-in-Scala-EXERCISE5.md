@@ -6,6 +6,8 @@ date: 2016-01-23 09:36:55
 tags: [FP, Functional-programming, Scala]
 ---
 
+<!-- truncate -->
+
 # Functional Programming in Scala - EXERCISE#5 (Optional)
 ## Description
 Implement uncurry, which reverses the transformation of curry. Note that since => associates to the right, A => (B => C) can be written as A => B => C

@@ -6,6 +6,8 @@ date: 2017-01-16 09:36:55
 tags: [FP, Scala, implicit-class]
 ---
 
+<!-- truncate -->
+
 ## Implicit Class
 Implicit Class는 클래스의 기본생성자(인자를 반드시 하나만 가지는)를 암묵적으로("자동으로"라고 해석해도 될 듯하다.) 호출하여 준다. 확~ 와닿지는 않는 말이기때문에 바로 아래의 예제를 보는 것이 좋을 것 같다.
 

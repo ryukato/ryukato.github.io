@@ -6,6 +6,8 @@ date: 2018-03-05 09:36:55
 tags: [ripple, 리플, 번역]
 ---
 
+<!-- truncate -->
+
 # Issuing and Operational Addresses
 (source: [https://ripple.com/build/issuing-operational-addresses/](https://ripple.com/build/issuing-operational-addresses/))
 

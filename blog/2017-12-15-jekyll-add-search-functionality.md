@@ -6,6 +6,8 @@ date: 2017-12-15 09:36:55
 tags: [Jekyll, tag-search, 카테고리검색, 태그검색]
 ---
 
+<!-- truncate -->
+
 # Jekyll 블로그에 태그 및 카테고리 검색 기능 추가하기
 ## Front Matter
 Jekyll을 통해 블로그를 운영하면서 작성하는 글들을 분류하기 위한 방법으로 카테고리 및 태그들을 활용할 수 있습니다. Jekyll은 [Front Matter](https://jekyllrb.com/docs/frontmatter/)를 사용하여, 아래와 같이 포스트에 대한 레이아웃, 제목, 작성일, 태크 및 카테고리 등을 설정할 수 있습니다.

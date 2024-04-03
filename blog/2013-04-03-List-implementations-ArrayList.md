@@ -6,6 +6,8 @@ date: 2013-04-03 16:57:29
 tags: [Java, JCF, List, ArrayList]
 ---
 
+<!-- truncate -->
+
 # List - ArrayList
 
 원래 Set의 구현체들에 대해 하나씩 써보기로 했었는데, Set을 더 깊게 이해하기 위해선 Map등 알아야 할 내용이 넘 많은것 같아 그래도 간단한 List의 구현체들을 하나씩 살펴볼려고 합니다. 그래서 이번에는 가장 많이 쓰이는 List의 구현체인 ArrayList에 대해 샆펴보려고 합니다.

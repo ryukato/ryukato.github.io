@@ -6,6 +6,8 @@ date: 2018-06-26 09:36:55
 tags: [JavaScript, ESLint, RegEx]
 ---
 
+<!-- truncate -->
+
 # ESLint
 
 # Regex for eslant

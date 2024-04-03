@@ -6,6 +6,8 @@ date: 2016-12-19 09:36:55
 tags: [FP, Scala, Unified-Types, Mixin, Composition]
 ---
 
+<!-- truncate -->
+
 # Scala
 ## Unified Types
 자바와는 대조적으로, Scala에서는 아래에 명시된 모든 값은 객체들이다.

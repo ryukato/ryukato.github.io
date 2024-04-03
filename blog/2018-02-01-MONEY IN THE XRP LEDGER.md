@@ -6,6 +6,8 @@ date: 2018-02-01 09:36:55
 tags: [ripple, 리플, 번역]
 ---
 
+<!-- truncate -->
+
 # Money in the XRP Ledger
 (source: https://ripple.com/build/money-xrp-ledger/)
 

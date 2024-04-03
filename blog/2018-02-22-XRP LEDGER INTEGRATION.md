@@ -6,6 +6,8 @@ date: 2018-02-22 09:36:55
 tags: [ripple, 리플, 번역]
 ---
 
+<!-- truncate -->
+
 #  XRP LEDGER INTEGRATION
 (source: https://ripple.com/build/gateway-guide/#xrp-ledger-integration)
 

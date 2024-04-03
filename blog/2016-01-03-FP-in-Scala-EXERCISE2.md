@@ -6,6 +6,8 @@ date: 2016-01-03 09:36:55
 tags: [FP, Functional-programming, Scala]
 ---
 
+<!-- truncate -->
+
 # Functional Programming in Scala - EXERCISE#2
 ## Description
 Implement isSorted, which checks whether an Array[A] is sorted according to a given comparison function.

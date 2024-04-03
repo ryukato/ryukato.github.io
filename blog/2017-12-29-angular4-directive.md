@@ -6,6 +6,8 @@ date: 2017-12-27 09:36:55
 tags: [JavaScript, Angular4, Directive]
 ---
 
+<!-- truncate -->
+
 # Angular4 - 지시자(Directive)
 Angular에서 가장 중요한 콤포넌트로 지시자는 DOM을 다루기 위한 모든것으로 정의할 수 있으며, 템플릿을 동적으로 만들어주는 요소이다.
 다시 말하면, 콤포넌트(Component)는 지시자(Directive)의 하위 객체이다. 단 지시자는 뷰(View)를 가질 수 없기때문에, 콤포넌트를 하위(자식)

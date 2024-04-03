@@ -6,6 +6,8 @@ date: 2016-01-02 09:36:55
 tags: [FP, Functional-programming, Scala]
 ---
 
+<!-- truncate -->
+
 # Functional Programming in Scala - EXERCISE#1
 ## Description
 Write a function to get the nth Fibonacci number.

@@ -6,6 +6,8 @@ date: 2017-12-30 09:36:55
 tags: [JavaScript, Angular4, 'Pipe multi-arguments']
 ---
 
+<!-- truncate -->
+
 # Angular4 - 파이브에 다수의 인자 넘기기
 Angular의 파이프는 Angular에서 제공하는 **PipeTransform** 인터페이스의 구현체이다.
 따라서 **PipeTransform** 인터페이스에 선언된 ```transform(value: any, ...args: any[]): any;``` 메서드만 구현하면 파이프로 사용이 가능하다.

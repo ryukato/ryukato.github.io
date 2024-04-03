@@ -7,6 +7,8 @@ tags: [Java, Design Pattern ,Lazy-Initialization]
 categories: [Design-pattern]
 ---
 
+<!-- truncate -->
+
 # Lazy Initialization in Java
 원문: http://antrix.net/posts/2012/java-lazy-initialization/
 

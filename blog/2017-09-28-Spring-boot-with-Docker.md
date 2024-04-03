@@ -6,6 +6,8 @@ date: 2017-09-28 09:36:55
 tags: [Java, Spring, Spring-boot, Docker]
 ---
 
+<!-- truncate -->
+
 # Spring-boot with Docker
 
 ## Docker 설치하기

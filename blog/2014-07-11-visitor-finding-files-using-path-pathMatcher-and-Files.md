@@ -6,6 +6,8 @@ date: 2014-07-11 09:36:55
 tags: [Java, Design-Pattern, Visitor, PathMatcher]
 ---
 
+<!-- truncate -->
+
 # Visitor 패턴 및 java.nio.Path, PathMatcher, Files를 이용한 File찾기
 
 ###### ResourceMatcher class
