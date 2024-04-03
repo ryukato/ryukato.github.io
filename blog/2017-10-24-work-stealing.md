@@ -4,10 +4,9 @@ title: work-stealing
 authors: ryukato
 date: 2017-10-24 16:57:29
 tags: [parallel-computing, work-stealing]
-categories: [Parallel-computing]
+---
 
 <!-- truncate -->
----
 
 
 원본: https://en.wikipedia.org/wiki/Work_stealing
