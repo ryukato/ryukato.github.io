@@ -1,8 +1,8 @@
 ---
-slug: on-mac-developement-setup
-title: on-mac-developement-setup
+slug: on-mac-developement-setup2
+title: on-mac-developement-setup2
 authors: ryukato
-date: 2024-03-30 12:42:50
+date: 2024-04-08 12:42:50
 tags: [development, laptop-setup]
 ---
 
