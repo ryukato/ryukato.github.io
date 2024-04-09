@@ -17,6 +17,10 @@ tags: [development, laptop-setup]
 - `brew install zsh`
 - `chsh -s $(which zsh)`
 
+```
+brew install zsh
+```
+
 > Note
 > If you see “chsh: /opt/homebrew/bin/zsh: non-standard shell” message on terminal, then please run below again.
 >
