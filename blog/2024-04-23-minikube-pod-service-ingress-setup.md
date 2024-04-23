@@ -119,7 +119,7 @@ kubectl logs --selector app=sample-app -n default
 apiVersion: v1
 kind: Service
 metadata:
-  name: sample-tfp
+  name: sample-app
 spec:
   selector:
     app: sample-app
@@ -155,6 +155,37 @@ minikube addons enable ingress
 
 ```shell
 kubectl get pods -w -n ingress-nginx
+```
+
+### Apply our ingress config
+
+#### sample
+
+```yml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sample-ingress
+  annotations:
+    kubernates.io/ingress.class: nginx
+    nginx.ingress.kubernates.io/rewrite-target: /
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /sample/view/
+            pathType: Prefix
+            backend:
+              service:
+                name: sample-app
+                port:
+                  number: 20080
+```
+
+#### How to apply
+
+```shell
+kubectl apply -f [path of the file/sample-ingress.yml]
 ```
 
 #### Access to ingress-controller’s NGINX
