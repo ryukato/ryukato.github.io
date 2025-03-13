@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[6298],{4886:a=>{a.exports=JSON.parse('{"label":"Lazy-Initialization","permalink":"/blog/tags/lazy-initialization","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

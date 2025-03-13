@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[8662],{6579:s=>{s.exports=JSON.parse('{"label":"JCF","permalink":"/blog/tags/jcf","allTagsPath":"/blog/tags","count":5,"unlisted":false}')}}]);

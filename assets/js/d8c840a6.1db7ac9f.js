@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[1347],{86455:s=>{s.exports=JSON.parse('{"label":"fork-join","permalink":"/blog/tags/fork-join","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

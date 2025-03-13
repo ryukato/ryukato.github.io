@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[9423],{48589:a=>{a.exports=JSON.parse('{"label":"MultiThreading","permalink":"/blog/tags/multi-threading","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

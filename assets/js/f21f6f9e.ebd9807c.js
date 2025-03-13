@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[2688],{32310:a=>{a.exports=JSON.parse('{"label":"companion","permalink":"/blog/tags/companion","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

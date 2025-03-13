@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[2669],{22500:a=>{a.exports=JSON.parse('{"permalink":"/blog/tags/java/page/2","page":2,"postsPerPage":20,"totalPages":2,"totalCount":24,"previousPage":"/blog/tags/java","blogDescription":"Blog","blogTitle":"Blog"}')}}]);

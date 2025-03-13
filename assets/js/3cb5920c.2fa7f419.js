@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[6504],{10835:e=>{e.exports=JSON.parse('{"label":"Pipe multi-arguments","permalink":"/blog/tags/pipe-multi-arguments","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

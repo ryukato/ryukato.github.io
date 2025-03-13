@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[9534],{86785:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/angular-4","page":1,"postsPerPage":20,"totalPages":1,"totalCount":3,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

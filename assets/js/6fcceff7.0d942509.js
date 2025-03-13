@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[7929],{75630:a=>{a.exports=JSON.parse('{"label":"Aggregation","permalink":"/blog/tags/aggregation","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

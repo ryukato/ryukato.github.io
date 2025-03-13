@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[7828],{49529:e=>{e.exports=JSON.parse('{"label":"ELK","permalink":"/blog/tags/elk","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

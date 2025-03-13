@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[2695],{48802:s=>{s.exports=JSON.parse('{"label":"CQRS","permalink":"/blog/tags/cqrs","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

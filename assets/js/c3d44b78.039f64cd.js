@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[2638],{66430:e=>{e.exports=JSON.parse('{"label":"TreeSet","permalink":"/blog/tags/tree-set","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[2392],{52703:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/scala","page":1,"postsPerPage":20,"totalPages":1,"totalCount":13,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

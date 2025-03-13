@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[3916],{33465:s=>{s.exports=JSON.parse('{"label":"Currying","permalink":"/blog/tags/currying","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

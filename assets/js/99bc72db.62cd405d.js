@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[6213],{42120:s=>{s.exports=JSON.parse('{"label":"laptop-setup","permalink":"/blog/tags/laptop-setup","allTagsPath":"/blog/tags","count":2,"unlisted":false}')}}]);

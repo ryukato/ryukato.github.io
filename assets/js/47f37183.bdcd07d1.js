@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[2140],{55361:e=>{e.exports=JSON.parse('{"label":"RegEx","permalink":"/blog/tags/reg-ex","allTagsPath":"/blog/tags","count":2,"unlisted":false}')}}]);

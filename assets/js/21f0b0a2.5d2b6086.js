@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[8577],{39544:e=>{e.exports=JSON.parse('{"label":"mini-kube","permalink":"/blog/tags/mini-kube","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

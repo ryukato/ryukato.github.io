@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[6333],{2297:e=>{e.exports=JSON.parse('{"label":"Unified-Types","permalink":"/blog/tags/unified-types","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

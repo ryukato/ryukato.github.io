@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[3143],{58370:e=>{e.exports=JSON.parse('{"label":"Lower-bound","permalink":"/blog/tags/lower-bound","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[4997],{5131:a=>{a.exports=JSON.parse('{"label":"tag-cloud","permalink":"/blog/tags/tag-cloud","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

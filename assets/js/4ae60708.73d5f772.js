@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[3720],{17015:e=>{e.exports=JSON.parse('{"label":"Secure Coding","permalink":"/blog/tags/secure-coding","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[6828],{90454:s=>{s.exports=JSON.parse('{"label":"Closure","permalink":"/blog/tags/closure","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

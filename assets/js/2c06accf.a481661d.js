@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[6599],{82604:e=>{e.exports=JSON.parse('{"label":"homebrew","permalink":"/blog/tags/homebrew","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

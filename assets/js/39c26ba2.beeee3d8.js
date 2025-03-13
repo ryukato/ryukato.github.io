@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[5477],{75939:a=>{a.exports=JSON.parse('{"label":"pattern-matching","permalink":"/blog/tags/pattern-matching","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[9528],{91528:a=>{a.exports=JSON.parse('{"label":"Java-puzzle","permalink":"/blog/tags/java-puzzle","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[7923],{2476:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/functional-programming","page":1,"postsPerPage":20,"totalPages":1,"totalCount":7,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

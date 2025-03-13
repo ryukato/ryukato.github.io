@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[1205],{37362:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/\ubc88\uc5ed","page":1,"postsPerPage":20,"totalPages":1,"totalCount":5,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

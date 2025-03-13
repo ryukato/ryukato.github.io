@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[8478],{3320:s=>{s.exports=JSON.parse('{"label":"work-stealing","permalink":"/blog/tags/work-stealing","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

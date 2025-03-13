@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[7178],{18559:s=>{s.exports=JSON.parse('{"label":"singleton","permalink":"/blog/tags/singleton","allTagsPath":"/blog/tags","count":2,"unlisted":false}')}}]);

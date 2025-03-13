@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[3970],{634:a=>{a.exports=JSON.parse('{"label":"Angular4","permalink":"/blog/tags/angular-4","allTagsPath":"/blog/tags","count":3,"unlisted":false}')}}]);

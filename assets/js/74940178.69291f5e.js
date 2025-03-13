@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[4789],{50462:s=>{s.exports=JSON.parse('{"label":"Case Class","permalink":"/blog/tags/case-class","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[9351],{52498:a=>{a.exports=JSON.parse('{"label":"Axon-framework","permalink":"/blog/tags/axon-framework","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

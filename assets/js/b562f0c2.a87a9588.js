@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[5093],{50480:s=>{s.exports=JSON.parse('{"label":"Mixin","permalink":"/blog/tags/mixin","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[3680],{98362:a=>{a.exports=JSON.parse('{"label":"OAuth2","permalink":"/blog/tags/o-auth-2","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

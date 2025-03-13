@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[6345],{73763:s=>{s.exports=JSON.parse('{"label":"implicit-class","permalink":"/blog/tags/implicit-class","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

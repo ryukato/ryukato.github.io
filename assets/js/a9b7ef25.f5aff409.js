@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[4766],{42895:a=>{a.exports=JSON.parse('{"label":"Data binding","permalink":"/blog/tags/data-binding","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[9836],{39921:a=>{a.exports=JSON.parse('{"label":"partially-applied-function","permalink":"/blog/tags/partially-applied-function","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

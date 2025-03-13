@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[8326],{28370:e=>{e.exports=JSON.parse('{"label":"getting-old","permalink":"/blog/tags/getting-old","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

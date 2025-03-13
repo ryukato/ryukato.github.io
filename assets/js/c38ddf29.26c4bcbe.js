@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[1388],{45647:s=>{s.exports=JSON.parse('{"label":"find-min-max-numbers","permalink":"/blog/tags/find-min-max-numbers","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

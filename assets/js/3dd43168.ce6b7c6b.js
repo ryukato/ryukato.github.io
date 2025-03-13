@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[5400],{70402:e=>{e.exports=JSON.parse('{"label":"Upper-bound","permalink":"/blog/tags/upper-bound","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

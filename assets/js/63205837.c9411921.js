@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksample=self.webpackChunksample||[]).push([[833],{40274:a=>{a.exports=JSON.parse('{"label":"PathMatcher","permalink":"/blog/tags/path-matcher","allTagsPath":"/blog/tags","count":2,"unlisted":false}')}}]);
