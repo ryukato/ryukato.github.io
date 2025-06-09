@@ -27,7 +27,7 @@ export default function AboutMe(): JSX.Element {
               </li>
               <li>
                 <FontAwesomeIcon icon={faGithub} />
-                <a href="mailto:ryukato79@gmail.com">ryukato</a>
+                <a href="https://github.com/ryukato">ryukato</a>
               </li>
               <li>
                 <FontAwesomeIcon icon={faLinkedin} />
