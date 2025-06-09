@@ -1,6 +1,6 @@
 ---
-slug: Functional Programming in Scala - EXERCISE#4
-title: Functional Programming in Scala - EXERCISE#4
+slug: Functional Programming in Scala - EXERCISE-4
+title: Functional Programming in Scala - EXERCISE-4
 authors: ryukato
 date: 2016-01-21 09:36:55
 tags: [FP, Functional-programming, Scala]
@@ -8,7 +8,7 @@ tags: [FP, Functional-programming, Scala]
 
 <!-- truncate -->
 
-# Functional Programming in Scala - EXERCISE#4
+# Functional Programming in Scala - EXERCISE-4
 ## Description
 Let’s look at another example, currying, which converts a function of N arguments into a function of one argument that returns another function as its result.11 Here again, there is only one implementation that typechecks.
 
@@ -16,7 +16,7 @@ Let’s look at another example, currying, which converts a function of N argume
 > 번역 및 해석
 > 커링을 실제 구현해 보는 문제입니다. 커링은 여러개의 인자를 받는 함수를, 하나의 인자를 받으면서 다른 인자를 받는 함수를 반환하는 함수로 변형하는 것입니다.
 “이번에도 타입을 확인 구현 방법은 오로지 하나만 존재합니다.”라고 문제에서 말하고 있는 것으로 해석됩니다.
-커링에 대한 내용은 [Java 8의 문제점: 커링(currying)대 클로져(closure))](2016-01-21-what-si-wrong-with-java-currying-closure)를 보시면 좀 더 도움이 될 것 같내요.
+커링에 대한 내용은 [Java 8의 문제점: 커링(currying)대 클로져(closure))](Java 8의 문제점 - 커링(currying)대 클로져(closure)))를 보시면 좀 더 도움이 될 것 같내요.
 
 ## Solve
 

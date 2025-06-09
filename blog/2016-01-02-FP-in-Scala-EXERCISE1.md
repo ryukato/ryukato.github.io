@@ -1,6 +1,6 @@
 ---
-slug: Functional Programming in Scala - EXERCISE#1
-title: Functional Programming in Scala - EXERCISE#1
+slug: Functional Programming in Scala - EXERCISE-1
+title: Functional Programming in Scala - EXERCISE-1
 authors: ryukato
 date: 2016-01-02 09:36:55
 tags: [FP, Functional-programming, Scala]
@@ -8,7 +8,7 @@ tags: [FP, Functional-programming, Scala]
 
 <!-- truncate -->
 
-# Functional Programming in Scala - EXERCISE#1
+# Functional Programming in Scala - EXERCISE-1
 ## Description
 Write a function to get the nth Fibonacci number.
 The first two Fibonacci numbers are 0 and 1, and the next number is always the sum of the previous two.

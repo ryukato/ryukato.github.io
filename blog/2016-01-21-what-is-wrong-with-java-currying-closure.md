@@ -1,5 +1,5 @@
 ---
-slug: Java 8의 문제점 - 커링(currying)대 클로져(closure))
+slug: currying_closure_in_java8
 title: Java 8의 문제점 - 커링(currying)대 클로져(closure))
 authors: ryukato
 date: 2016-01-21 09:36:55

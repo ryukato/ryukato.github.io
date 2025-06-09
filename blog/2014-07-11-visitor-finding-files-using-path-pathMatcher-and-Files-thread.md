@@ -10,7 +10,7 @@ tags: [Java, Design-Pattern, Visitor, PathMatcher]
 
 # Visitor 패턴 및 java.nio.Path, PathMatcher, Files를 이용한 File찾기 - 쓰레드 활용
 
-[Visitor 패턴 및 java.nio.Path, PathMatcher, Files를 이용한 File찾기](/design-pattern/2014/07/11/visitor-finding-files-using-path-pathMatcher-and-Files.html)
+[Visitor 패턴 및 java.nio.Path, PathMatcher, Files를 이용한 File찾기](Visitor 패턴 및 java.nio.Path, PathMatcher, Files를 이용한 File찾기)
 를 기본으로 이번엔 Thread 버전으로 해봤습니다.
 
 아래의 두 파일만 변경이 되었고 나머진 그대로 입니다.

@@ -1,6 +1,6 @@
 ---
-slug: Functional Programming in Scala - EXERCISE#3
-title: Functional Programming in Scala - EXERCISE#3
+slug: Functional Programming in Scala - EXERCISE-3
+title: Functional Programming in Scala - EXERCISE-3
 authors: ryukato
 date: 2016-01-04 09:36:55
 tags: [FP, Functional-programming, Scala]
@@ -8,7 +8,7 @@ tags: [FP, Functional-programming, Scala]
 
 <!-- truncate -->
 
-# Functional Programming in Scala - EXERCISE#3 (HARD)
+# Functional Programming in Scala - EXERCISE-3 (HARD)
 ## Description
 This function, partial1, takes a value and a function of two arguments, and returns a function of one argument as its result. The name comes from the fact that the function is being applied to some but not all of its required arguments.
 

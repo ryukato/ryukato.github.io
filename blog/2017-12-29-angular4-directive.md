@@ -1,5 +1,5 @@
 ---
-slug: Angular4 지시자(Directive) 요약정리
+slug: Angular4_directive_summary
 title: Angular4 지시자(Directive) 요약정리
 authors: ryukato
 date: 2017-12-27 09:36:55
