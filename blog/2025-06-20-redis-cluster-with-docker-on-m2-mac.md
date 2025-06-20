@@ -9,162 +9,149 @@ tags: [Redis, Cluster, Docker, Mac. M2]
 <!-- truncate -->
 
 # Setup Redis cluster with docker(compose) on M2
-Here is docker-compose.yml file and init-redis-cluster.sh
+Here is docker-compose.yml file and `redis.conf`
 
-## init-redis-cluster.sh
-This file is required because Redis attempts to auto-detect its own IP address, but in Docker containers, it may default to 127.0.0.1 or an incorrect internal address, leading to failures in cluster communication.
+## redis.conf
+We need to create conf files for each node with same port but different `cluster-announce-port` and `redis-cli -h localhost -p 26380 -a secret`.
 
-The init-cluster.sh script is necessary because Docker Compose cannot reliably execute dynamic shell commands—such as resolving container IPs—within the command: field. This script ensures that all Redis nodes are discoverable by hostname, properly resolved to IP addresses, and correctly joined into a Redis cluster with the appropriate master-replica setup.
-
-```shell
-#!/bin/bash
-
-# 1. Resolve Redis container hostnames to internal IP addresses
-# 2. Format those IPs into Redis-compatible cluster node addresses (e.g., IP:6379)
-# 3. Use 'redis-cli --cluster create' to form a 6-node cluster
-# 4. Pipe in 'yes' to automatically confirm cluster creation
-
-
-set -e
-
-# DNS → IP conversion
-NODES=$(getent hosts redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5 | awk '{print $1":6379"}' | paste -sd' ' -)
-
-echo "[INFO] Creating Redis Cluster with nodes:"
-echo "$NODES"
-
-yes yes | redis-cli -a "$REDIS_PASSWORD" --cluster create $NODES --cluster-replicas 1
-
+```text
+port 6379
+cluster-enabled yes
+cluster-config-file nodes.conf
+cluster-node-timeout 3000
+cluster-announce-ip [host IP]
+cluster-announce-port 26379
+cluster-announce-bus-port 17000
+appendonly yes
+requirepass secret
+masterauth secret
 ```
-
-> Note
-> The script dynamically resolves all Redis node IPs and initializes the cluster using redis-cli. It automates the slot allocation and replica assignment to avoid manual configuration and resolve timing/network issues in Docker-based environments.
 
 ## docker-compose.yml
 ```yml
 version: "3.9"
 
 services:
-  # this is to debug like ping to redis-node container with its name   
+# for debugging to use ping nslookup and etc.
   debug-busybox:
     image: busybox
     command: sleep 3600
     networks:
-      - redis-cluster
-
-  redis-node-0:
-    image: bitnami/redis-cluster:7.2
-    container_name: redis-node-0
-    environment:
-      - REDIS_PASSWORD=secret
-      - REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5
-      - REDIS_CLUSTER_ANNOUNCE_IP=redis-node-0
-      # - REDIS_CLUSTER_DYNAMIC_IPS=yes
+      - sample-app
+  redis-node-1:
+    image: redis:7.2
+    container_name: redis-node-1
+    volumes:
+      - ./redis-data/node1/redis.conf:/usr/local/etc/redis/redis.conf
     ports:
       - "26379:6379"
       - "17000:16379"
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
     networks:
-      - redis-cluster
+      - sample-app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
-  redis-node-1:
-    image: bitnami/redis-cluster:7.2
-    container_name: redis-node-1
-    environment:
-      - REDIS_PASSWORD=secret
-      - REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5
-      - REDIS_CLUSTER_ANNOUNCE_IP=redis-node-1
-      # - REDIS_CLUSTER_DYNAMIC_IPS=yes
+  redis-node-2:
+    image: redis:7.2
+    container_name: redis-node-2
+    volumes:
+      - ./redis-data/node2/redis.conf:/usr/local/etc/redis/redis.conf
     ports:
       - "26380:6379"
       - "17001:16379"
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
     networks:
-      - redis-cluster
+      - sample-app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
-  redis-node-2:
-    image: bitnami/redis-cluster:7.2
-    container_name: redis-node-2
-    environment:
-      - REDIS_PASSWORD=secret
-      - REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5
-      - REDIS_CLUSTER_ANNOUNCE_IP=redis-node-2
-      # - REDIS_CLUSTER_DYNAMIC_IPS=yes
+  redis-node-3:
+    image: redis:7.2
+    container_name: redis-node-3
+    volumes:
+      - ./redis-data/node3/redis.conf:/usr/local/etc/redis/redis.conf
     ports:
       - "26381:6379"
       - "17002:16379"
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
     networks:
-      - redis-cluster
+      - sample-app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
-  redis-node-3:
-    image: bitnami/redis-cluster:7.2
-    container_name: redis-node-3
-    environment:
-      - REDIS_PASSWORD=secret
-      - REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5
-      - REDIS_CLUSTER_ANNOUNCE_IP=redis-node-3
-      # - REDIS_CLUSTER_DYNAMIC_IPS=yes
+  redis-node-4:
+    image: redis:7.2
+    container_name: redis-node-4
+    volumes:
+      - ./redis-data/node4/redis.conf:/usr/local/etc/redis/redis.conf
     ports:
       - "26382:6379"
       - "17003:16379"
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
     networks:
-      - redis-cluster
+      - sample-app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
-  redis-node-4:
-    image: bitnami/redis-cluster:7.2
-    container_name: redis-node-4
-    environment:
-      - REDIS_PASSWORD=secret
-      - REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5
-      - REDIS_CLUSTER_ANNOUNCE_IP=redis-node-4
-      # - REDIS_CLUSTER_DYNAMIC_IPS=yes
+  redis-node-5:
+    image: redis:7.2
+    container_name: redis-node-5
+    volumes:
+      - ./redis-data/node5/redis.conf:/usr/local/etc/redis/redis.conf
     ports:
       - "26383:6379"
       - "17004:16379"
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
     networks:
-      - redis-cluster
+      - sample-app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
-  redis-node-5:
-    image: bitnami/redis-cluster:7.2
-    container_name: redis-node-5
-    environment:
-      - REDIS_PASSWORD=secret
-      - REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5
-      - REDIS_CLUSTER_ANNOUNCE_IP=redis-node-5
-      # - REDIS_CLUSTER_DYNAMIC_IPS=yes
+  redis-node-6:
+    image: redis:7.2
+    container_name: redis-node-6
+    volumes:
+      - ./redis-data/node6/redis.conf:/usr/local/etc/redis/redis.conf
     ports:
       - "26384:6379"
       - "17005:16379"
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
     networks:
-      - redis-cluster
+      - sample-app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   redis-cluster-init:
-    image: bitnami/redis-cluster:7.2
+    image: redis:7.2
     container_name: redis-cluster-init
-    volumes:
-      - ./init-redis-cluster.sh:/opt/bitnami/scripts/redis-cluster/setup.sh
     depends_on:
-      - redis-node-0
       - redis-node-1
       - redis-node-2
       - redis-node-3
       - redis-node-4
       - redis-node-5
-    environment:
-      - REDIS_PASSWORD=secret
-      - REDIS_NODES=redis-node-0 redis-node-1 redis-node-2 redis-node-3 redis-node-4 redis-node-5
-    command: >
-      bash -c "sleep 15 &&
-      /opt/bitnami/scripts/redis-cluster/setup.sh
-      --cluster-announce-ip redis-cluster-init
-      --password secret
-      --cluster-replicas 1
-      --use-password"
+      - redis-node-6
+    entrypoint: [ "bash", "-c" ]
+    command:
+      - >
+        sleep 5 &&
+        echo yes | redis-cli -a secret --cluster create
+        host.docker.internal:26379
+        host.docker.internal:26380
+        host.docker.internal:26381
+        host.docker.internal:26382
+        host.docker.internal:26383
+        host.docker.internal:26384
+        --cluster-replicas 1
     networks:
-      - redis-cluster
+      - sample-app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 networks:
-  redis-cluster:
+  sample-app:
     driver: bridge
-
 ```
 
 ## Time to run
