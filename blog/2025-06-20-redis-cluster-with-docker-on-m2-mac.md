@@ -1,6 +1,6 @@
 ---
-slug: PG_Integration 
-title: KG 이니시스 연동 시 주의 사항 
+slug: redis-cluster-with-docker-on-m2 
+title: Redis cluster using docker on M2 
 authors: ryukato
 date: 2025-06-20 17:41:00
 tags: [Redis, Cluster, Docker, Mac. M2]
