@@ -24,6 +24,7 @@ import torch
 
 device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 ```
+
 > Note
 > 실행 환경의 조건에 따라 다음과 같이 torch device를 검사 및 설정할 수 있습니다.
 
@@ -102,3 +103,52 @@ model = MyModel().to(device=device, dtype=dtype)
 
 > ✅ 참고: PyTorch 공식 MPS 문서  
 > https://pytorch.org/docs/stable/notes/mps.html
+---
+
+## 🚀 MPS 환경에서 PyTorch 성능을 최대한 활용하는 팁
+
+Apple Silicon(M1/M2/M3) 환경에서 MPS를 사용할 때, GPU 자원을 최대한 활용하려면 다음과 같은 방법들을 고려해야 합니다:
+
+### ✅ 최신 PyTorch 사용
+- 최소 PyTorch 1.12 이상, 추천 버전은 2.1+
+- 최신 버전에서는 MPS 백엔드의 연산 지원이 크게 향상됨
+
+### ✅ float32 사용 권장
+- MPS는 float32에서 가장 안정적으로 작동
+- float16, bfloat16은 제한적이거나 미지원
+
+### ✅ 배치 사이즈 조절
+- GPU 메모리가 제한적이므로 작은 batch size 사용 추천 (예: 4~32)
+
+### ✅ 입력 크기 축소
+- 음성, 이미지 등 입력 길이나 해상도 줄이기 (예: Whisper의 chunk_length_s를 10~20초로 설정)
+
+### ✅ 캐시 및 메모리 정리
+
+```python
+import gc
+import torch
+
+del model
+gc.collect()
+if torch.backends.mps.is_available():
+    torch.mps.empty_cache()
+```
+
+### ✅ MPS 연산 지원 여부 확인
+
+```python
+if torch.backends.mps.is_available():
+    print("MPS available:", torch.backends.mps.is_built())
+```
+
+### ✅ MPS 성능 분석 도구
+- macOS Activity Monitor → GPU 탭
+- Instruments.app → Metal 성능 분석
+- torch.profiler (PyTorch 2.1 이상 일부 지원)
+
+---
+
+## 💡 추가 제안: CoreML 추론 고려
+- PyTorch 모델을 ONNX 또는 CoreML로 변환 후 추론 시 더 나은 성능
+- `optimum` Transformers + CoreML runtime으로 효율적인 추론 가능
