@@ -24,6 +24,24 @@ import torch
 
 device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 ```
+> Note
+> 실행 환경의 조건에 따라 다음과 같이 torch device를 검사 및 설정할 수 있습니다.
+
+```python
+def get_device():
+    device = torch.device("cpu")
+    if torch.cuda.is_available():
+            print("cuda is available")
+            device = torch.device("cuda"))
+        else:
+            if torch.backends.mps.is_available():
+                print("mps is available")
+            device = torch.device("mps")
+            else:
+                print("cuda and mps are not available, so cpu will be used.")
+
+    return device
+```
 
 ---
 
