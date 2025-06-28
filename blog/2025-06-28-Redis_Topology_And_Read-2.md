@@ -23,7 +23,7 @@ Redis Cluster 환경에서의 Topology 변화, 클라이언트 동작 방식, �
 | Cluster      | 샤딩 기반 분산 처리 + 자동 Failover 지원   |
 
 ## 2. 클라이언트별 Topology 변경 대응 전략
-![Redis Topology and Read](/assets/redis-topology.png)
+![Redis Topology and Read](/assets/redis/redis-topology.png)
 
 
 ### ✅ Lettuce
