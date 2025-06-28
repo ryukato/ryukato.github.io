@@ -24,7 +24,6 @@ Redis Cluster 환경에서의 Topology 변화, 클라이언트 동작 방식, �
 
 ## 2. 클라이언트별 Topology 변경 대응 전략
 
-![Redis Topology and Read](/assets/redis/redis-topology.png)
 
 ### ✅ Lettuce
 
@@ -61,19 +60,17 @@ clusterServersConfig:
   retryInterval: 1500
 ```
 
----
 
 ## 🔁 클라이언트별 Topology 변경 (Failover) 대응 정리
 
 | 클라이언트 | Sentinel 환경 대응 | Cluster 환경 대응 |
 |------------|--------------------|--------------------|
-| **Lettuce**  | ✅ 자동 재연결, 마스터 변경 감지<br>Topology refresh 필요 없음 | ✅ MOVED 응답 기반 자동 topology refresh<br>Adaptive + Periodic 설정 시 빠른 대응 |
-| **Redisson** | ✅ 마스터 변경 자동 감지<br>scanInterval 내에서 반영됨 | ✅ 주기적인 slot 스캔으로 반영<br>slot-to-node 매핑 변경 시 대응 가능 |
+| **Lettuce**  | ✅ 자동 재연결, 마스터 변경 감지<br />Topology refresh 필요 없음 | ✅ MOVED 응답 기반 자동 topology refresh<br />Adaptive + Periodic 설정 시 빠른 대응 |
+| **Redisson** | ✅ 마스터 변경 자동 감지<br />scanInterval 내에서 반영됨 | ✅ 주기적인 slot 스캔으로 반영<br />slot-to-node 매핑 변경 시 대응 가능 |
 
 - Sentinel 환경에서는 클라이언트가 **마스터 변경을 자동 감지하여 reconnect**
 - Cluster 환경에서는 **MOVED 응답 또는 주기적 refresh로 slot 이동에 대응**
 
----
 
 ## 3. MOVED 응답 발생 조건 및 처리
 
@@ -137,12 +134,10 @@ Redisson은 내부적으로 master/slave 구분 후 자동 처리하며, 수동 
 | ----------------- | --------------------------------------------------------------------- |
 | 데이터 정합성 필요        | `ReadFrom.MASTER`                                                     |
 | 성능 / 캐시 목적        | `ReadFrom.REPLICA_PREFERRED`                                          |
-| topology 대응       | Lettuce: adaptive refresh + periodic refresh<br>Redisson: scanInterval 설정 |
+| topology 대응       | Lettuce: adaptive refresh + periodic refresh<br />Redisson: scanInterval 설정 |
 | MOVED 대응          | 클라이언트 설정 + 리샤딩 작업 시점 통제                                               |
 | rebalancing 시점 제어 | `redis-cli` 명령 수동 실행                                                  |
 
----
 
+---
 > Redis Cluster 운영에서 중요한 것은 "클러스터 구조를 바꾸는 주체는 사람"이라는 점입니다. 클라이언트는 이를 빠르게 감지하고 대응할 수 있도록 설정만 잘 해주면, MOVED나 stale read 문제는 대부분 제어 가능합니다.
-
----
