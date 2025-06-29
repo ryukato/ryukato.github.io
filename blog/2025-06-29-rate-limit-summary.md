@@ -94,7 +94,8 @@ redisTemplate.opsForValue().increment(key)
 
 ### 위에서 제시된 코드를 원자적으로 개선
 
-### Sliding Window Log - Lua Script
+### Sliding Window Log - Lua Script and some codes
+#### Lua-Script
 ```lua
 redis.call("ZADD", KEYS[1], ARGV[1], ARGV[1])
 redis.call("ZREMRANGEBYSCORE", KEYS[1], 0, ARGV[2])
@@ -105,8 +106,30 @@ else
   return 1
 end
 ```
+#### Kotlin code for lua-script
 
-### Token Bucket - Lua Script
+```kotlin
+val now = System.currentTimeMillis()
+val windowStart = now - WINDOW_SIZE_MS
+val script = DefaultRedisScript<Int>()
+script.scriptText = loadLuaScriptFromClasspath("scripts/sliding_window.lua")
+script.resultType = Int::class.java
+
+val allowed = redisTemplate.execute(
+    script,
+    listOf("rate:user:$userId"),
+    now.toString(),
+    windowStart.toString(),
+    limit.toString()
+)
+
+if (allowed == 0) throw RateLimitExceededException()
+```
+
+
+### Token Bucket - Lua Script and some codes
+#### Lua-Script
+
 ```lua
 local bucket = redis.call("HMGET", KEYS[1], "tokens", "last_refill")
 local tokens = tonumber(bucket[1]) or tonumber(ARGV[3])
@@ -126,8 +149,28 @@ else
   return 1
 end
 ```
+#### Kotlin code for lua-script
+
+```kotlin
+val now = System.currentTimeMillis()
+val script = DefaultRedisScript<Int>()
+script.scriptText = loadLuaScriptFromClasspath("scripts/token_bucket.lua")
+script.resultType = Int::class.java
+
+val allowed = redisTemplate.execute(
+    script,
+    listOf("bucket:user:$userId"),
+    now.toString(),
+    "10",      // refill rate
+    "100",     // capacity
+    "1"        // requested tokens
+)
+
+if (allowed == 0) throw RateLimitExceededException()
+```
 
 ### Leaky Bucket - Lua Script
+#### Lua-Script
 ```lua
 local state = redis.call("HMGET", KEYS[1], "count", "last_leak")
 local count = tonumber(state[1]) or 0
@@ -147,7 +190,115 @@ else
   return 1
 end
 ```
+#### Kotlin code for lua-script
 
+```kotlin
+val now = System.currentTimeMillis()
+val script = DefaultRedisScript<Int>()
+script.scriptText = loadLuaScriptFromClasspath("scripts/leaky_bucket.lua")
+script.resultType = Int::class.java
+
+val allowed = redisTemplate.execute(
+    script,
+    listOf("leaky:user:$userId"),
+    now.toString(),
+    "1000",  // leak rate (ms per request)
+    "10"      // capacity
+)
+
+if (allowed == 0) throw RateLimitExceededException()
+```
+
+### Helper codes
+#### Loading lua-script using class-loader
+```kotlin
+fun loadLuaScriptFromClasspath(path: String): String {
+    val classLoader = Thread.currentThread().contextClassLoader
+    val inputStream = classLoader.getResourceAsStream(path)
+        ?: throw IllegalArgumentException("Script not found: $path")
+    return inputStream.bufferedReader().use { it.readText() }
+}
+```
+
+#### Load scripts on Redis
+```shell
+# 등록
+SCRIPT LOAD "$(cat scripts/token_bucket.lua)"
+
+# 반환된 SHA 값 사용
+EVALSHA "<SHA1>" 1 bucket:user:123 <now> 10 100 1
+
+```
+
+## Applying using WebFilter
+### How it works
+* WebFilter: 모든 요청을 가로채어 rate-limit 검사
+* Lua Script: Redis에서 원자적으로 rate-limit 로직 수행
+* RedisTemplate: 스크립트 실행 및 결과 확인
+* 적용 대상: 전체 요청 또는 특정 URL/헤더/사용자에 따라 유연하게 적용 가능
+
+### How it results
+* 사용자별 X-USER-ID 기준으로 초당 10개, 최대 100개의 토큰을 부여
+* 초과 시 429 Too Many Requests 응답
+* 정밀한 동시성 제어와 성능을 Lua + Redis로 처리
+
+### Example
+```kotlin
+@Component
+class RateLimitWebFilter(
+    private val redisTemplate: StringRedisTemplate
+) : WebFilter {
+
+    private val scriptSha: String
+
+    init { // fail-fast from instancing when application is booting-up
+        val scriptText = loadLuaScriptFromClasspath("scripts/token_bucket.lua")
+        val sha = redisTemplate.execute(RedisCallback { connection ->
+            connection.serverCommands().scriptLoad(scriptText.toByteArray())
+        })?.toHexString()
+
+        this.scriptSha = sha ?: throw IllegalStateException("Failed to register Lua script with Redis")
+    }
+
+    override fun filter(exchange: ServerWebExchange, chain: WebFilterChain): Mono<Void> {
+        val request = exchange.request
+        val userId = request.headers.getFirst("X-USER-ID") ?: "anonymous"
+        val now = System.currentTimeMillis()
+
+        val passed = redisTemplate.execute(RedisCallback { connection ->
+            connection.evalSha(
+                scriptSha,
+                ReturnType.INTEGER,
+                1,
+                "bucket:user:$userId".toByteArray(),
+                now.toString().toByteArray(),
+                "10".toByteArray(),   // refill rate (tokens/sec)
+                "100".toByteArray(),  // capacity
+                "1".toByteArray()     // tokens required
+            )
+        }) as? Long
+
+        return if (passed == 1L) {
+            chain.filter(exchange)
+        } else {
+            exchange.response.statusCode = HttpStatus.TOO_MANY_REQUESTS
+            exchange.response.setComplete()
+        }
+    }
+
+    private fun loadLuaScriptFromClasspath(path: String): String {
+        val stream = Thread.currentThread().contextClassLoader.getResourceAsStream(path)
+            ?: throw IllegalArgumentException("Lua script not found: $path")
+        return stream.bufferedReader().use { it.readText() }
+    }
+
+    private fun ByteArray.toHexString(): String =
+        joinToString("") { "%02x".format(it) }
+}
+```
+> Note
+>
+> 위의 예제는 인입되는 모든 요청에 대해 rate-limit을 적용합니다. 상황에 따라 적용 대상을 분리하여 적용할 수 있는데요. 그런 경우,request의 header, method 그리고 path등을 이용하여 처리할 수 있습니다.
 
 ## 마무리
 
