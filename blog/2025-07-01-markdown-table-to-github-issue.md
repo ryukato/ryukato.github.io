@@ -2,7 +2,7 @@
 slug: markdown-table-to-github-issue 
 title: Simple github issue register from markdown table 
 authors: ryukato
-date: 2025-06-30 18:01:00
+date: 2025-07-01 18:43:00
 tags: [co-work, collaboration, feature-centric]
 ---
 
