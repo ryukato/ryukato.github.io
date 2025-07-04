@@ -28,3 +28,18 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* 전체 콘텐츠 너비 조정 */
+.main-wrapper {
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+main {
+    min-width: 50%;
+}
