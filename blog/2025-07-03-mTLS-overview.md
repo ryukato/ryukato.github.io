@@ -33,7 +33,7 @@ Client                        Server
   │ —— Client Hello ———→        │  ← TLS 시작
   │ ←— Server Certificate ——    │  ← 서버 인증서 검증
   │ —— Client Certificate —→    │  ← 클라이언트 인증서 제공
-  │ ←— 인증 완료 후 암호화 세션 │  ← 세션 키 협상 완료
+  │ ←— 인증 완료 후 암호화 세션       │  ← 세션 키 협상 완료
   │ ←—— Encrypted Data ——→      │  ← 양방향 암호화 통신
 ```
 
