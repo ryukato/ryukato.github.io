@@ -163,7 +163,7 @@ class MyTest {
 
 ---
 
-## ✅ 기타 유용한 설정
+## ✅ 기타 유용한 설정 및 리소스
 
 - `r2dbc-postgresql` 버전은 Spring Boot BOM에 의해 자동 관리됨
 
@@ -171,3 +171,71 @@ class MyTest {
 >
 > `r2dbc-postgresql` 의존성 라이브러리를 자동으로 가져오지 못하는 경우, 원하는 버전을 명시해주면 됩니다. 
 > 참고: [maven r2dbc-postgresql](https://mvnrepository.com/artifact/io.r2dbc/r2dbc-postgresql)
+
+### ✅ PostgreSQL Docker-componse
+#### compose yml file
+```yaml title="docker-compose.yml"
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: r2dbc_postgres
+    restart: unless-stopped
+    ports:
+      - "25432:5432"
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpass
+      POSTGRES_DB: drug_metadata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: unless-stopped
+    ports:
+      - "38080:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+      - ./pgadmin/servers.json:/pgadmin4/servers.json
+      - ./pgadmin/.pgpass:/pgadmin4/.pgpass
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+
+```
+#### .pgpass
+Put `.pgpass` under `pgadmin` directory
+
+```text title=".pgpass"
+postgres:5432:drug_metadata:devuser:devpass
+```
+
+#### servers.json
+Put `servers.json` under `pgadmin` directory
+```json title="servers.json"
+{
+  "Servers": {
+    "1": {
+      "Name": "drug-db",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "drug_metadata",
+      "Username": "devuser",
+      "SSLMode": "prefer",
+      "PassFile": ".pgpass"
+    }
+  }
+}
+```
