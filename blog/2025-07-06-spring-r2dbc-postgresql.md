@@ -187,7 +187,7 @@ services:
     environment:
       POSTGRES_USER: devuser
       POSTGRES_PASSWORD: devpass
-      POSTGRES_DB: drug_metadata
+      POSTGRES_DB: dummy
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./initdb:/docker-entrypoint-initdb.d
@@ -218,7 +218,7 @@ volumes:
 Put `.pgpass` under `pgadmin` directory
 
 ```text title=".pgpass"
-postgres:5432:drug_metadata:devuser:devpass
+postgres:5432:dummy:devuser:devpass
 ```
 
 #### servers.json
@@ -231,7 +231,7 @@ Put `servers.json` under `pgadmin` directory
       "Group": "Servers",
       "Host": "postgres",
       "Port": 5432,
-      "MaintenanceDB": "drug_metadata",
+      "MaintenanceDB": "dummy",
       "Username": "devuser",
       "SSLMode": "prefer",
       "PassFile": ".pgpass"
