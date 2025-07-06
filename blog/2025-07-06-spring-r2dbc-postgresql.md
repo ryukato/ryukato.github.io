@@ -167,7 +167,7 @@ class MyTest {
 
 - `r2dbc-postgresql` 버전은 Spring Boot BOM에 의해 자동 관리됨
 
-> Not
+> Note
 >
 > `r2dbc-postgresql` 의존성 라이브러리를 자동으로 가져오지 못하는 경우, 원하는 버전을 명시해주면 됩니다. 
 > 참고: [maven r2dbc-postgresql](https://mvnrepository.com/artifact/io.r2dbc/r2dbc-postgresql)
