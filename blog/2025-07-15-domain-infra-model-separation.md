@@ -79,7 +79,11 @@ data class TestDomainItemDocument(
     @Id val id: ObjectId? = null,
     val itemSequence: String,
     val itemName: String
-)
+) {
+     companion object {
+        const val COLLECTION = "test_items"
+    }
+}
 ```
 
 ### 장점
@@ -127,3 +131,54 @@ data class TestDomainItemDocument(
 - **Mongo 저장용 모델은 별도로 두고, `@Document`, `@Id`는 infra 쪽에만**
 - **간단한 변환은 extension function 또는 mapper로 구현**
 - **Infra → 도메인 매핑은 읽기/쓰기 테스트로 보장**
+
+## ✅ Sample for bulk upsert
+### Convert extensions
+#### domain-to-document
+```kotlin
+fun TestDomainItem.toDocument(): Document =
+    Document()
+        .append("itemSequence", itemSequence)
+        .append("itemName", itemName)
+```
+
+#### infra-model-to-document
+```kotlin
+fun TestDomainItemDocument.toDocument(): Document {
+    val doc = Document("item", this.item.toDocument())
+
+    if (this.id != null) {
+        doc["_id"] = this.id
+    }
+
+    return doc
+}
+```
+
+#### bulk-upsert function
+```kotlin
+suspend fun upsertAll(items: Collection<TestDomainItem>): Boolean {
+    if (items.isEmpty()) return false
+
+    val collection = reactiveMongoTemplate.getCollection(TestDomainItemDocument.COLLECTION).awaitSingle()
+    val models = items.map { item ->
+        val mongoItem = item.toMongo()
+        val doc = mongoItem.toDocument()
+        val filter = Filters.eq("item.itemSequence", item.itemSequence)
+
+        ReplaceOneModel(filter, doc, ReplaceOptions().upsert(true))
+    }
+
+    val result = collection.bulkWrite(models).awaitSingle()
+    // logger.info("Upsert result - inserted: ${result.insertedCount}, modified: ${result.modifiedCount}, upserts: ${result.upserts.size}")
+    return result.modifiedCount > 0 || result.insertedCount > 0 || result.upserts.isNotEmpty()
+}
+```
+
+> Note
+>
+> 만약 doc 전체를 교체하려는 목적이기 때문에, UpdateOneModel이 아닌 ReplaceOneModel을 사용했습니다. 하지만 일부 속성만 수정하는 목적이라면 아래와 같이 UpdateOneModel을 사용해야 해요. 
+```kotlin
+val updateDoc = Document("\$set", doc)
+UpdateOneModel<Document>(filter, updateDoc, UpdateOptions().upsert(true))
+```
