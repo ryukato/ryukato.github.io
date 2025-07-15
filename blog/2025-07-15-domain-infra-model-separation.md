@@ -74,7 +74,7 @@ data class TestDomainItem(
 ### 인프라 모델
 
 ```kotlin
-@Document(collection = "transformed_items")
+@Document(collection = "test_items")
 data class TestDomainItemDocument(
     @Id val id: ObjectId? = null,
     val itemSequence: String,
@@ -96,12 +96,19 @@ data class TestDomainItemDocument(
 ## ✅ Step 4: Infra 모델을 nested 구조로 단순화
 
 ```kotlin
-@Document(collection = "transformed_items")
-data class MongoTestDomainItem(
+@Document(collection = "test_items")
+data class TestDomainItemDocument(
     @Id val id: ObjectId? = null,
     val item: TestDomainItem
 )
 ```
+
+> 💡 **NOTE:**  
+> MongoDB와 같은 NoSQL 데이터베이스는 nested 구조를 자연스럽게 저장하고 쿼리할 수 있지만,  
+> RDB(Relational Database)에서는 nested 객체를 컬럼으로 표현할 수 없기 때문에  
+> 모든 속성을 평탄화(flatten)하여 별도 컬럼으로 나열해야 합니다.  
+> 따라서 nested 구조는 NoSQL 전용 구조이며, RDB 마이그레이션 시 반드시 변환이 필요합니다.
+
 
 ### 장점
 - Infra ↔ 도메인 간 변환 코드가 단순해짐
