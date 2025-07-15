@@ -134,6 +134,7 @@ data class TestDomainItemDocument(
 
 ## ✅ Sample for bulk upsert
 ### Convert extensions
+
 #### domain-to-document
 ```kotlin
 fun TestDomainItem.toDocument(): Document =
@@ -152,6 +153,74 @@ fun TestDomainItemDocument.toDocument(): Document {
     }
 
     return doc
+}
+```
+#### domain repository
+```kotlin
+interface TestDomainItemWriteRepository {
+    suspend fun upsertAll(items: Collection<TestDomainItem>): Boolean
+}
+
+interface TestDomainItemReadOnlyRepository {
+    suspend fun findAll(paginationRequest: PaginationRequest): PaginatedElements<TestDomainItem>
+}
+```
+
+#### infra repository
+```kotlin
+
+@Repository
+class MongoTestDomainItemReadOnlyRepository(
+    private val mongoTemplate: ReactiveMongoTemplate
+) : TestDomainItemReadOnlyRepository {
+    override suspend fun findAll(paginationRequest: PaginationRequest): PaginatedElements<TestDomainItem> {
+        val pageable = paginationRequest.toPageable()
+        val page = pageable.pageNumber
+        val size = pageable.pageSize
+        val skip = (page - 1).coerceAtLeast(0) * size
+        val sort = pageable.sort
+
+        val query = Query()
+        val pageQuery = query.skip(skip.toLong())
+            .limit(size)
+            .with(sort)
+
+        val listedResult = mongoTemplate.find(
+            pageQuery,
+            MongoWrappedTestDomainItem::class.java,
+        ).map { it.toDomain() }.collectList()
+        val total = mongoTemplate.count(query, MongoWrappedTestDomainItem::class.java)
+
+        return listedResult
+            .zipWith(total)
+            .map { entityTuples -> Tuples.of(entityTuples.t1.toList(), entityTuples.t2) }
+            .map { entityTuples -> convertToPaginatedElements(entityTuples, pageable) }
+            .awaitSingle()
+    }
+}
+
+
+@Repository
+class MongoTestDomainItemWriteRepository(
+    private val reactiveMongoTemplate: ReactiveMongoTemplate
+) : TestDomainItemWriteRepository {
+    
+    override suspend fun upsertAll(items: Collection<TestDomainItem>): Boolean {
+        if (items.isEmpty()) return false
+
+        val collection = reactiveMongoTemplate.getCollection(MongoWrappedTestDomainItem.COLLECTION).awaitSingle()
+        val models = items.map { item ->
+            val mongoItem = item.toMongo()
+            val doc = mongoItem.toDocument()
+            val filter = Filters.eq("item.itemSequence", item.itemSequence)
+
+            ReplaceOneModel(filter, doc, ReplaceOptions().upsert(true))
+        }
+
+        val result = collection.bulkWrite(models).awaitSingle()
+        // logger.info("Upsert result - inserted: ${result.insertedCount}, modified: ${result.modifiedCount}, upserts: ${result.upserts.size}")
+        return result.modifiedCount > 0 || result.insertedCount > 0 || result.upserts.isNotEmpty()
+    }
 }
 ```
 
@@ -181,4 +250,51 @@ suspend fun upsertAll(items: Collection<TestDomainItem>): Boolean {
 ```kotlin
 val updateDoc = Document("\$set", doc)
 UpdateOneModel<Document>(filter, updateDoc, UpdateOptions().upsert(true))
+```
+
+#### Test Codes
+```kotlin
+
+
+MongoRawDrugItemSummaryRepositoryTest {
+
+    @Autowired
+    private lateinit var rawDrugItemSummaryWriteRepository: MongoRawDrugItemSummaryWriteRepository
+
+    @Autowired
+    private lateinit var rawDrugItemSummaryReadOnlyRepository: MongoRawDrugItemSummaryReadOnlyRepository
+
+    @Test
+    fun testUpsertAll() = runBlocking {
+        val rawDrugItemSummaries = (1..10).map {
+            TestDomainItem(
+                itemSequence = "$it",
+                itemName = "item-$it",
+            )
+        }
+        var updated = testDomainItemWriteRepository.upsertAll(rawDrugItemSummaries)
+        assertTrue(updated)
+
+        var paginatedElements = testDomainItemReadOnlyRepository.findAll(
+            paginationRequest = PaginationRequest.Companion.build(1, 100)
+        )
+        assertTrue(paginatedElements.elements.isNotEmpty())
+        assertEquals(rawDrugItemSummaries.size, paginatedElements.totalCount.toInt())
+
+
+        val updatedName = "this is updated name"
+        val updates = rawDrugItemSummaries.map {
+            it.copy(itemName = updatedName)
+        }
+        updated = testDomainItemWriteRepository.upsertAll(updates)
+        assertTrue(updated)
+        paginatedElements = testDomainItemReadOnlyRepository.findAll(
+            paginationRequest = PaginationRequest.build(1, 100)
+        )
+
+        paginatedElements.elements.forEach {
+            assertEquals(updatedName, it.itemName)
+        }
+    }
+}
 ```
