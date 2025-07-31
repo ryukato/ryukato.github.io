@@ -25,6 +25,14 @@ tags: [DomainModel, DTO, CleanArchitecture, TradeOff, SoftwareDesign, Java, Spri
 - **매핑/변환 없이 생산성과 유지보수성을 확보**할 수 있다
 - **단순 응답 모델에서는 오히려 DTO가 비용만 증가시킴**
 
+### ⚠️ 우려 사항들
+Entity가 도메인 모델이라면 Presentation Layer에서 직접 사용하는 것은 지양해야 한다. 이유는 다음과 같다:
+	•	도메인 캡슐화 침해: 화면 요구사항(View 특화 필드 등)이 도메인 내부로 침투할 수 있다.
+	•	단일 책임 원칙 위배: 도메인은 비즈니스 규칙에 집중해야 하며, 표현 책임은 별도 객체가 가져야 한다.
+	•	변경 전파 위험: 도메인 모델 구조 변경 시, View 및 API 응답 구조도 영향을 받을 수 있다.
+	•	아키텍처 원칙 위배: Hexagonal Architecture 등 계층적 설계 원칙에서 도메인과 UI는 간접적으로만 연결되어야 한다.
+
+따라서 도메인 모델은 Presentation Layer에 직접 노출되지 않도록, Response와 같은 표현 계층 전용 객체를 두는 것이 바람직하다.
 ---
 
 ## Entity는 도메인 모델인가, 영속화 모델인가?
