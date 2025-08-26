@@ -319,3 +319,6 @@ async def build_csv_buffer(self, batch, columns):
 - 데이터 정합성 확인 (예: `row count`, `hash 비교`, `diff 로그`)
 
 ---
+
+끝으로 저의 경우, 40분이 걸리던 작업을 25분으로 단축 했습니다. 아래의 그래프를 참고해주세요. :) 
+![improvements.png](/assets/airflow/improvements.png)
