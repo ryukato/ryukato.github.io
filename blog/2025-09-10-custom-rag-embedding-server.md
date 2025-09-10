@@ -11,6 +11,8 @@ tags: [rag-embedding, qdrant]
 이 포스팅에서는 직접 구현한 FastAPI 기반 RAG Embedding Server의 구조, 동작 방식, 설계 의도 등을 설명합니다.  
 해당 서버는 Qdrant를 벡터 스토어로 사용하며, 테스트 데이터를 기반으로 한 임베딩을 비동기 방식으로 처리합니다.
 
+전체 코드는 [rag_embedding_server](https://github.com/ryukato/public_api_airflow_scaffold/tree/main/rag_embedding_server) 에서 확인 가능합니다.
+
 <!-- truncate -->
 
 ---
