@@ -29,12 +29,12 @@ tags: [rag-embedding, qdrant]
 
 ### ✅ 1. `api.py`: FastAPI 엔드포인트
 
-- `/rag-drug-docs/embed`: POST API
+- `/test/embed`: POST API
 - 입력 스키마: `TestRagChunkListRequest`
 - 내부 큐에 입력을 push → `EmbeddingWorker`가 async 처리
 
 ```python
-@app.post("/rag-drug-docs/embed")
+@app.post("/test/embed")
 async def embed_documents(request: TestRagChunkListRequest):
     for chunk in request.chunks:
         await embedding_worker.enqueue(chunk)
@@ -82,7 +82,7 @@ entity "EmbeddingWorker (Queue)" as Worker
 entity "Embedding Function (HuggingFace)" as Embedder
 entity "QdrantRepository" as Qdrant
 
-User -> FastAPI: POST /rag-drug-docs/embed
+User -> FastAPI: POST /test/embed
 FastAPI -> Worker: enqueue(chunk)
 Worker -> Worker: fetch batch
 Worker -> Embedder: generate vector
@@ -127,7 +127,7 @@ Worker -> Qdrant: upsert_many(vectors)
 ### 🩺 3. Health Check (상태 확인)
 
 ```bash
-curl http://localhost:8000/rag-drug-docs/status
+curl http://localhost:8000/test/status
 ```
 
 정상이라면 다음과 같은 JSON 응답을 받습니다:
@@ -145,7 +145,7 @@ curl http://localhost:8000/rag-drug-docs/status
 ### 📤 4. 테스트 임베딩 요청
 
 ```bash
-curl -X POST http://localhost:8000/rag-drug-docs/embed \
+curl -X POST http://localhost:8000/test/embed \
   -H "Content-Type: application/json" \
   -d @sample_chunks.json
 ```
