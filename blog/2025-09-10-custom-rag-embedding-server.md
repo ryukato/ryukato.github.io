@@ -9,7 +9,7 @@ tags: [rag-embedding, qdrant]
 # 🧠 Custom RAG Embedding Server - 프로젝트 설명 및 아키텍처
 
 이 포스팅에서는 직접 구현한 FastAPI 기반 RAG Embedding Server의 구조, 동작 방식, 설계 의도 등을 설명합니다.  
-해당 서버는 Qdrant를 벡터 스토어로 사용하며, 약품 정보를 기반으로 한 임베딩을 비동기 방식으로 처리합니다.
+해당 서버는 Qdrant를 벡터 스토어로 사용하며, 테스트 데이터를 기반으로 한 임베딩을 비동기 방식으로 처리합니다.
 
 <!-- truncate -->
 
