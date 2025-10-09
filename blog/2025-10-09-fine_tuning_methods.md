@@ -11,6 +11,7 @@ tags: [ai, ai-agent, fine-tuning, LoRA, Gemma, RAG, PEFT]
 이 문서는 LLM(Gemma, Mistral 등)을 대상으로 도메인 키워드 인식 능력을 개선하기 위한 Fine-Tuning/적응 방법들을 **적용 난이도 순서로** 정리한 문서입니다.
 
 ---
+<!-- truncate -->
 
 ## 1. Prompt Engineering (프롬프트 엔지니어링)
 **난이도:** ★★★★★ (매우 쉬움)  
