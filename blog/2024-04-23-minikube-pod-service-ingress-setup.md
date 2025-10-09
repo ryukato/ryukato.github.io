@@ -6,7 +6,6 @@ date: 2024-04-23 12:42:50
 tags: [development, k8s, mini-kube]
 ---
 
-<!-- truncate -->
 
 # k8s setting on m1/m2 Mac
 

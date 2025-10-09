@@ -6,12 +6,13 @@ date: 2025-06-23 12:13:00
 tags: [PyTorch, MPS, M2]
 ---
 
-<!-- truncate -->
 # Apple Silicon(M1/M2)에서 PyTorch MPS 사용 시 torch_dtype 설정 주의사항
 
 Apple Silicon(M1, M2, M3 등)을 사용하는 macOS 환경에서는 PyTorch의 `cuda` 대신 **Metal Performance Shaders(MPS)** 백엔드를 사용해야 합니다. 하지만 이때 주의해야 할 점 중 하나가 바로 **`torch_dtype` 설정**입니다.
 
 ---
+
+<!-- truncate -->
 
 ## ✅ MPS란?
 

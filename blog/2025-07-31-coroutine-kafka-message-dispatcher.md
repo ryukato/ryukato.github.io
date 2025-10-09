@@ -6,13 +6,12 @@ date: 2025-07-31 13:46:00
 tags: [Kafka, coroutine, message-dispatcher]
 ---
 
-<!-- truncate -->
-
 # Kafka Coroutine 기반 Message Dispatcher 개선 단계별 코드 정리
 
 이 문서는 Kafka 기반 비동기 메시지 처리 구조에서 Kotlin Coroutines를 이용한 Message Dispatcher의 개선 과정을 **단계별 코드 예제와 함께** 정리한 문서입니다.
 
 ---
+<!-- truncate -->
 
 ## ✅ Step 1: 기본 Dispatcher
 

@@ -6,12 +6,12 @@ date: 2025-06-22 15:01:00
 tags: [CircuitBreaker, Redis, Redisson]
 ---
 
-<!-- truncate -->
 # Redis 기반 분산 Circuit Breaker 설계 및 구현
 
 현대 분산 시스템에서 외부 API 호출이나 타 시스템 연동이 빈번해지면서, 장애 전파를 방지하기 위한 **Circuit Breaker** 패턴의 중요성이 점점 커지고 있다. 특히 여러 인스턴스가 동시에 운영되는 환경에서는 **분산 상태 공유**가 가능한 구조가 필수다. 본 포스팅에서는 **Redis 기반 분산 Circuit Breaker 구현**을 중심으로, Kotlin + Coroutine 환경에서 안전하게 사용하는 방식을 소개한다.
 
 ---
+<!-- truncate -->
 
 ## 📌 Circuit Breaker란?
 

@@ -6,8 +6,6 @@ date: 2025-06-30 18:01:00
 tags: [co-work, collaboration, feature-centric]
 ---
 
-<!-- truncate -->
-
 # 🧩 Feature-Centric Cross-Functional Collaboration
 
 ## ✨ 문서 목적
@@ -19,6 +17,7 @@ tags: [co-work, collaboration, feature-centric]
 이를 통해 **조기에 가치 중심의 합의를 형성하고**, 불필요한 구현 낭비를 줄이며, 실질적인 사용자 가치를 전달할 수 있는 기반을 마련하는 데 목적이 있습니다.
 
 ---
+<!-- truncate -->
 
 ## 📘 개요
 

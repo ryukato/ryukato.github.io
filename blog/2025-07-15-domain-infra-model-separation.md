@@ -6,14 +6,13 @@ date: 2025-07-15 10:21:00
 tags: [port_adapter, domain_model, infra_model]
 ---
 
-<!-- truncate -->
-
 # 도메인 모델과 인프라 모델 분리 과정 정리
 
 이 문서는 `TestDomainItem`을 예시로 하여, 도메인 모델과 MongoDB용 인프라 모델을 분리하는 과정을 단계별로 정리한 것입니다.  
 각 단계에서는 선택된 구조의 장단점 및 고려할 트레이드오프도 함께 포함되어 있습니다.
 
 ---
+<!-- truncate -->
 
 ## ✅ Step 1: 도메인 모델에 MongoDB 어노테이션 직접 사용
 

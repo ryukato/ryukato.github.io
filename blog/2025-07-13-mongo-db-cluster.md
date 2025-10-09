@@ -6,13 +6,13 @@ date: 2025-07-13 12:56:00
 tags: [Mongo, Cluster]
 ---
 
-<!-- truncate -->
-
 # 🧱 MongoDB 클러스터 구성 with Docker Compose
 
 MongoDB의 Replica Set(복제셋)을 Docker Compose로 구성하고, `rs.initiate()` 자동 실행 및 관리 UI(mongo-express)까지 연동하는 실습입니다.
 
 ---
+
+<!-- truncate -->
 
 ## 📦 구성 요소
 

@@ -6,8 +6,6 @@ date: 2025-06-20 17:41:00
 tags: [Redis, Cluster, Docker, Mac. M2]
 ---
 
-<!-- truncate -->
-
 # Setup Redis cluster with docker(compose) on M2
 Here is docker-compose.yml file and `redis.conf`
 

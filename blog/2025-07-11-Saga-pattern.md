@@ -6,7 +6,6 @@ date: 2025-07-11 10:24:00
 tags: [SAGA-Pattern, 분산트랜잭션, 보상트랜잭션]
 ---
 
-<!-- truncate -->
 
 # 🌐 Saga 패턴 정리 (Spring Boot + Kafka 기반)
 
@@ -17,6 +16,8 @@ tags: [SAGA-Pattern, 분산트랜잭션, 보상트랜잭션]
 **전체 트랜잭션의 일관성을 유지하는 패턴**이다.
 
 ---
+
+<!-- truncate -->
 
 ## 📌 왜 필요한가?
 

@@ -6,14 +6,13 @@ date: 2025-07-01 18:43:00
 tags: [co-work, collaboration, feature-centric]
 ---
 
-<!-- truncate -->
-
 # 📝 Markdown 테이블 → GitHub Issues 자동 등록 가이드
 
 이 가이드는 Markdown 파일에 정의된 테이블을 읽어,  
 각 행을 GitHub Issue로 자동 등록하는 방법을 설명합니다.
 
 ---
+<!-- truncate -->
 
 ## 📁 프로젝트 구성
 

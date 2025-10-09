@@ -6,12 +6,12 @@ date: 2025-07-06 16:21:00
 tags: [spring-boot, r2dbc, PostgreSQL]
 ---
 
-<!-- truncate -->
 # R2DBC + PostgreSQL with Spring Boot
 
 이 문서는 Spring Boot에서 **R2DBC**와 **PostgreSQL**을 함께 사용할 때 유용한 설정과 팁을 정리한 것입니다.
 
 ---
+<!-- truncate -->
 
 ## ✅ 의존성 설정 (Gradle)
 

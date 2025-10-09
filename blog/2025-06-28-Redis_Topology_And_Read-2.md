@@ -6,12 +6,12 @@ date: 2025-06-28 09:32:00
 tags: [Redis, Cluster, Topology, Lettuce, Redisson]
 ---
 
-<!-- truncate -->
 # Redis Cluster 운영 및 클라이언트 전략 정리
 
 Redis Cluster 환경에서의 Topology 변화, 클라이언트 동작 방식, 그리고 Read 전략에 대한 핵심 내용을 정리합니다. 실무 및 면접에서 바로 활용 가능한 내용으로 구성하였습니다.
 
 ---
+<!-- truncate -->
 
 ## 1. Redis Topology 개요
 

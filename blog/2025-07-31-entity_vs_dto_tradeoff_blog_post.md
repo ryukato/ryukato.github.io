@@ -6,7 +6,6 @@ date: 2025-07-31 16:16:00
 tags: [DomainModel, DTO, CleanArchitecture, TradeOff, SoftwareDesign, Java, SpringBoot]
 ---
 
-<!-- truncate -->
 # Entity vs DTO 논쟁의 본질: 순수성인가, 실용성인가?
 
 소프트웨어 설계에서 자주 반복되는 논쟁 중 하나는 바로 **Entity를 Presentation Layer에서 사용하는 것이 적절한가?** 하는 질문이다. 이 논쟁은 단순히 기술적인 분리가 옳으냐를 넘어서, **실용성과 유지보수 비용, 협업의 복잡성, 그리고 조직적 일관성**이라는 주제를 포함하고 있다.
@@ -14,6 +13,8 @@ tags: [DomainModel, DTO, CleanArchitecture, TradeOff, SoftwareDesign, Java, Spri
 이 글에서는 실용주의 관점에서 **Entity와 DTO 사이의 경계**를 바라보고, 그에 따른 trade-off를 분석하고자 한다.
 
 ---
+
+<!-- truncate -->
 
 ## Entity는 Presentation Layer에서 써도 되는가?
 
