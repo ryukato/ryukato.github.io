@@ -16,6 +16,8 @@ API 애플리케이션을 개발하다 보면, 예외 설계는 항상 뒤로 �
 그 다음에 **Server / Client 축과 ErrorCode enum, Resolver, Factory Method**를 활용한  
 좀 더 견고한 예외 설계 방식을 정리해본다.
 
+<!-- truncate -->
+
 ---
 
 ## 자주 범하는 예외 구조
